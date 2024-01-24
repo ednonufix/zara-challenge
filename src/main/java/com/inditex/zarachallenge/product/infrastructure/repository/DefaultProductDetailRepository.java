@@ -1,11 +1,11 @@
 package com.inditex.zarachallenge.product.infrastructure.repository.details;
 
-import com.inditex.zarachallenge.product.domain.details.ProductDetail;
-import com.inditex.zarachallenge.product.domain.details.ProductDetailRepository;
+import com.inditex.zarachallenge.infrastructure.datasource.database.ProductDetailDatasource;
 import com.inditex.zarachallenge.infrastructure.datasource.database.entities.ProductDetailEntity;
 import com.inditex.zarachallenge.infrastructure.datasource.http.ProductSimilarDataSource;
+import com.inditex.zarachallenge.product.domain.ProductDetailRepository;
+import com.inditex.zarachallenge.product.domain.details.ProductDetail;
 import com.inditex.zarachallenge.product.infrastructure.repository.details.mapper.ProductDetailMapper;
-import com.inditex.zarachallenge.infrastructure.datasource.database.ProductDetailDatasource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

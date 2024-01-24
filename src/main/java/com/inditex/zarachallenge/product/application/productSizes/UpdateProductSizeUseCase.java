@@ -1,13 +1,13 @@
-package com.inditex.zarachallenge.product.usesCases;
+package com.inditex.zarachallenge.product.application.productSizes;
 
+import com.inditex.zarachallenge.product.domain.ProductSizesRepository;
 import com.inditex.zarachallenge.product.domain.sizes.ProductSizeUpdate;
-import com.inditex.zarachallenge.product.domain.sizes.ProductSizesRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
-public class UpdateProductDetailsService {
+public class UpdateProductSizeUseCase {
 
     private final ProductSizesRepository productSizesRepository;
 

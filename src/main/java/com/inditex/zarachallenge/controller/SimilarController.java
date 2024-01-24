@@ -1,7 +1,7 @@
 package com.inditex.zarachallenge.controller;
 
 import com.inditex.zarachallenge.controller.model.ProductDetailResponse;
-import com.inditex.zarachallenge.product.usesCases.ProductDetailService;
+import com.inditex.zarachallenge.product.application.detail.ProductDetailUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,11 +14,11 @@ import java.util.Set;
 @RestController
 public class SimilarController {
 
-    private final ProductDetailService productDetailService;
+    private final ProductDetailUseCase productDetailUseCase;
 
     // TODO: Insert code in this controller
     @GetMapping("/product/{productId}/similar")
     public ResponseEntity<Set<ProductDetailResponse>> getSimilarProducts(@PathVariable("productId") String productId) {
-        return ResponseEntity.ok(productDetailService.getSimilarProducts(productId));
+        return ResponseEntity.ok(productDetailUseCase.getSimilarProducts(productId));
     }
 }

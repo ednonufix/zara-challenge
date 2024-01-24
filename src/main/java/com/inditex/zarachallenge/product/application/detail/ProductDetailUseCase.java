@@ -1,9 +1,9 @@
-package com.inditex.zarachallenge.product.usesCases;
+package com.inditex.zarachallenge.product.application.detail;
 
 
 import com.inditex.zarachallenge.controller.model.ProductDetailResponse;
+import com.inditex.zarachallenge.product.domain.ProductDetailRepository;
 import com.inditex.zarachallenge.product.domain.details.ProductDetail;
-import com.inditex.zarachallenge.product.domain.details.ProductDetailRepository;
 import com.inditex.zarachallenge.product.domain.offers.ProductOffer;
 import com.inditex.zarachallenge.product.domain.sizes.ProductSize;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -21,12 +20,12 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-public class ProductDetailService {
+public class ProductDetailUseCase {
 
     private final LocalDateTime currentDate;
     private final ProductDetailRepository productDetailRepository;
 
-    public ProductDetailService(@Value("${date}") String date, ProductDetailRepository productDetailRepository) {
+    public ProductDetailUseCase(@Value("${date}") String date, ProductDetailRepository productDetailRepository) {
         this.currentDate = LocalDateTime.parse(date, DateTimeFormatter.ISO_DATE_TIME);
         this.productDetailRepository = productDetailRepository;
     }

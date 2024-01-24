@@ -1,4 +1,4 @@
-package com.inditex.zarachallenge.product.domain.details;
+package com.inditex.zarachallenge.product.domain;
 
 import com.inditex.zarachallenge.product.domain.details.ProductDetail;
 import org.springframework.stereotype.Repository;
