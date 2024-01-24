@@ -53,8 +53,8 @@ public class ZaraInitialConfig implements CommandLineRunner {
 		Consumer<Message<ProductAvailabilityEvent>> consumer = kafka.KafkaConsumer();
 		try {
 			List<ProductAvailabilityEvent> stocks = Files
-				.readAllLines(ResourceUtils.getFile(resourceFile.getURL()).toPath()).stream()
-				.map(line -> convertStock(Arrays.asList(line.trim().split(",")))).toList();
+					.readAllLines(ResourceUtils.getFile(resourceFile.getURL()).toPath()).stream()
+					.map(line -> convertStock(Arrays.asList(line.trim().split(",")))).toList();
 			stocks.forEach(stock -> consumer.accept(new GenericMessage<ProductAvailabilityEvent>(stock)));
 		} catch (Exception e) {
 			new Exception("Error in consumer");
@@ -65,35 +65,35 @@ public class ZaraInitialConfig implements CommandLineRunner {
 	public void init() {
 		startMockServer();
 		mockServerClient.when(HttpRequest.request().withMethod("GET").withPath("/product/1/similarids"))
-			.respond(HttpResponse.response().withBody("[2,3,4]").withStatusCode(HttpStatus.OK.value())
-						 .withHeader(Header.header("Content-Type", "application/json")));
+				.respond(HttpResponse.response().withBody("[2,3,4]").withStatusCode(HttpStatus.OK.value())
+						.withHeader(Header.header("Content-Type", "application/json")));
 		mockServerClient.when(HttpRequest.request().withMethod("GET").withPath("/product/2/similarids"))
-			.respond(HttpResponse.response().withBody("[3,7,8]").withStatusCode(HttpStatus.OK.value())
-						 .withHeader(Header.header("Content-Type", "application/json")));
+				.respond(HttpResponse.response().withBody("[3,7,8]").withStatusCode(HttpStatus.OK.value())
+						.withHeader(Header.header("Content-Type", "application/json")));
 		mockServerClient.when(HttpRequest.request().withMethod("GET").withPath("/product/3/similarids"))
-			.respond(HttpResponse.response().withBody("[7,8,9]").withStatusCode(HttpStatus.OK.value())
-						 .withHeader(Header.header("Content-Type", "application/json")));
+				.respond(HttpResponse.response().withBody("[7,8,9]").withStatusCode(HttpStatus.OK.value())
+						.withHeader(Header.header("Content-Type", "application/json")));
 		mockServerClient.when(HttpRequest.request().withMethod("GET").withPath("/product/4/similarids"))
-			.respond(HttpResponse.response().withBody("[1,2,5]").withStatusCode(HttpStatus.OK.value())
-						 .withHeader(Header.header("Content-Type", "application/json")));
+				.respond(HttpResponse.response().withBody("[1,2,5]").withStatusCode(HttpStatus.OK.value())
+						.withHeader(Header.header("Content-Type", "application/json")));
 		mockServerClient.when(HttpRequest.request().withMethod("GET").withPath("/product/5/similarids"))
-			.respond(HttpResponse.response().withBody("[1,2,6]").withStatusCode(HttpStatus.OK.value())
-						 .withHeader(Header.header("Content-Type", "application/json")));
+				.respond(HttpResponse.response().withBody("[1,2,6]").withStatusCode(HttpStatus.OK.value())
+						.withHeader(Header.header("Content-Type", "application/json")));
 		mockServerClient.when(HttpRequest.request().withMethod("GET").withPath("/product/26/similarids"))
-			.respond(HttpResponse.response().withBody("[1,100,6]").withStatusCode(HttpStatus.OK.value())
-						 .withHeader(Header.header("Content-Type", "application/json")));
+		.respond(HttpResponse.response().withBody("[1,100,6]").withStatusCode(HttpStatus.OK.value())
+				.withHeader(Header.header("Content-Type", "application/json")));
 		mockServerClient.when(HttpRequest.request().withMethod("GET").withPath("/product/37/similarids"))
-			.respond(HttpResponse.response().withBody("[1000,7,8]").withStatusCode(HttpStatus.OK.value())
-						 .withHeader(Header.header("Content-Type", "application/json")));
+		.respond(HttpResponse.response().withBody("[1000,7,8]").withStatusCode(HttpStatus.OK.value())
+				.withHeader(Header.header("Content-Type", "application/json")));
 		mockServerClient.when(HttpRequest.request().withMethod("GET").withPath("/product/18/similarids"))
-			.respond(HttpResponse.response().withBody("[1,2,10000]").withStatusCode(HttpStatus.OK.value())
-						 .withHeader(Header.header("Content-Type", "application/json")));
+		.respond(HttpResponse.response().withBody("[1,2,10000]").withStatusCode(HttpStatus.OK.value())
+				.withHeader(Header.header("Content-Type", "application/json")));
 		mockServerClient.when(HttpRequest.request().withMethod("GET").withPath("/product/12/similarids"))
-			.respond(HttpResponse.response().withBody("[20,18,19]").withStatusCode(HttpStatus.OK.value())
-						 .withHeader(Header.header("Content-Type", "application/json")));
+		.respond(HttpResponse.response().withBody("[20,18,19]").withStatusCode(HttpStatus.OK.value())
+				.withHeader(Header.header("Content-Type", "application/json")));
 		mockServerClient.when(HttpRequest.request().withMethod("GET").withPath("/product/9/similarids"))
-			.respond(HttpResponse.response().withBody("[11,15,19]").withStatusCode(HttpStatus.OK.value())
-						 .withHeader(Header.header("Content-Type", "application/json")));
+		.respond(HttpResponse.response().withBody("[11,15,19]").withStatusCode(HttpStatus.OK.value())
+				.withHeader(Header.header("Content-Type", "application/json")));
 	}
 	@PreDestroy
 	public void onDestroy() {
@@ -102,9 +102,9 @@ public class ZaraInitialConfig implements CommandLineRunner {
 
 	public ProductAvailabilityEvent convertStock(List<String> stock) {
 		return ProductAvailabilityEvent.builder().sizeId(Long.parseLong(stock.get(0)))
-			.availability(Boolean.parseBoolean(stock.get(1)))
-			.update(Timestamp.valueOf(
-				LocalDateTime.parse(stock.get(2), DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX"))))
-			.build();
+				.availability(Boolean.parseBoolean(stock.get(1)))
+				.update(Timestamp.valueOf(
+						LocalDateTime.parse(stock.get(2), DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX"))))
+				.build();
 	}
 }
