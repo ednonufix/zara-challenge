@@ -3,11 +3,17 @@ package com.inditex.zarachallenge.infrastructure.outbound.database;
 import com.inditex.zarachallenge.infrastructure.outbound.database.entities.ProductSizeEntity;
 import jakarta.persistence.EntityManager;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.TimeZone;
 
 @DataJpaTest
 class ProductSizeDatabaseRepositoryTest {
@@ -18,6 +24,11 @@ class ProductSizeDatabaseRepositoryTest {
     @Autowired
     private EntityManager entityManager;
 
+    @BeforeEach
+    void setUp() {
+        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+    }
+
     @Test
     void updateSizeAvailability() {
 
@@ -27,7 +38,7 @@ class ProductSizeDatabaseRepositoryTest {
         beforeUpdateExpected.setId(1L);
         beforeUpdateExpected.setSize("S");
         beforeUpdateExpected.setAvailability(true);
-        beforeUpdateExpected.setLastUpdated(LocalDateTime.parse("2021-12-12T02:37:30.903"));
+        beforeUpdateExpected.setLastUpdated(LocalDateTime.parse("2021-12-12T01:37:30.903"));
 
         Assertions.assertThat(beforeUpdate)
             .isNotNull()
