@@ -1,13 +1,9 @@
 package com.inditex.zarachallenge.config;
 
-import java.nio.file.Files;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.List;
-import java.util.function.Consumer;
-
+import com.inditex.zarachallenge.infrastructure.inbound.brokers.KafkaListener;
+import com.inditex.zarachallenge.infrastructure.inbound.brokers.model.ProductAvailabilityEvent;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.mockserver.client.MockServerClient;
 import org.mockserver.model.Header;
 import org.mockserver.model.HttpRequest;
@@ -24,11 +20,13 @@ import org.springframework.messaging.support.GenericMessage;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import com.inditex.zarachallenge.infrastructure.KafkaListener;
-import com.inditex.zarachallenge.infrastructure.model.ProductAvailabilityEvent;
-
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
+import java.nio.file.Files;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
 
 @Configuration
 @EnableWebMvc

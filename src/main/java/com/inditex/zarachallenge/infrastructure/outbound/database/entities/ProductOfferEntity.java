@@ -10,7 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Setter
 @Getter
@@ -23,7 +23,7 @@ public class ProductOfferEntity {
     private Long id;
 
     @Column(name = "VALID_FROM", nullable = false)
-    private Timestamp validFrom;
+    private LocalDateTime validFrom;
 
     @Column(name = "PRICE", nullable = false)
     private BigDecimal price;
