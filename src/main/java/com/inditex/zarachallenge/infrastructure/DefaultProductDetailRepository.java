@@ -1,5 +1,6 @@
 package com.inditex.zarachallenge.infrastructure;
 
+import com.inditex.zarachallenge.domain.ProductDetailRepository;
 import com.inditex.zarachallenge.domain.details.ProductDetail;
 import com.inditex.zarachallenge.infrastructure.outbound.database.ProductDetailDatabaseRepository;
 import com.inditex.zarachallenge.infrastructure.outbound.database.entities.ProductDetailEntity;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Repository
-public class DefaultProductDetailRepository implements com.inditex.zarachallenge.domain.ProductDetailRepository {
+public class DefaultProductDetailRepository implements ProductDetailRepository {
 
     private final ProductDetailDatabaseRepository productDetailDatabaseRepository;
     private final ProductDetailMapper productDetailMapper;
