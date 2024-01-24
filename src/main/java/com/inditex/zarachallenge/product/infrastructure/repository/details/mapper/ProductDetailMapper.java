@@ -1,8 +1,8 @@
 package com.inditex.zarachallenge.product.infrastructure.repository.details.mapper;
 
-import com.inditex.zarachallenge.infrastructure.datasource.database.entities.ProductDetailEntity;
-import com.inditex.zarachallenge.infrastructure.datasource.database.entities.ProductOfferEntity;
-import com.inditex.zarachallenge.infrastructure.datasource.database.entities.ProductSizeEntity;
+import com.inditex.zarachallenge.infrastructure.outbound.database.entities.ProductDetailEntity;
+import com.inditex.zarachallenge.infrastructure.outbound.database.entities.ProductOfferEntity;
+import com.inditex.zarachallenge.infrastructure.outbound.database.entities.ProductSizeEntity;
 import com.inditex.zarachallenge.product.domain.details.ProductDetail;
 import com.inditex.zarachallenge.product.domain.offers.ProductOffer;
 import com.inditex.zarachallenge.product.domain.sizes.ProductSize;

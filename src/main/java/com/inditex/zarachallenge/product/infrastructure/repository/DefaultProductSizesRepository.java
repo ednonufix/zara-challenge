@@ -1,6 +1,6 @@
-package com.inditex.zarachallenge.product.infrastructure.repository.sizes;
+package com.inditex.zarachallenge.product.infrastructure.repository;
 
-import com.inditex.zarachallenge.infrastructure.datasource.database.ProductSizesDatasource;
+import com.inditex.zarachallenge.infrastructure.outbound.database.ProductSizesDatasource;
 import com.inditex.zarachallenge.product.domain.ProductSizesRepository;
 import com.inditex.zarachallenge.product.domain.sizes.ProductSizeUpdate;
 import lombok.RequiredArgsConstructor;

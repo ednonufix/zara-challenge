@@ -1,7 +1,7 @@
 package com.inditex.zarachallenge.infrastructure;
 
 import com.inditex.zarachallenge.infrastructure.model.ProductAvailabilityEvent;
-import com.inditex.zarachallenge.product.application.productSizes.UpdateProductSizeUseCase;
+import com.inditex.zarachallenge.product.application.productSize.UpdateProductSizeUseCase;
 import com.inditex.zarachallenge.product.domain.sizes.ProductSizeUpdate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

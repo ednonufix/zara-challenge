@@ -1,7 +1,7 @@
 package com.inditex.zarachallenge.controller;
 
-import com.inditex.zarachallenge.controller.model.ProductDetailResponse;
-import com.inditex.zarachallenge.product.application.detail.ProductDetailUseCase;
+import com.inditex.zarachallenge.product.application.productDetail.ProductDetailUseCase;
+import com.inditex.zarachallenge.product.domain.details.ProductDetailResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

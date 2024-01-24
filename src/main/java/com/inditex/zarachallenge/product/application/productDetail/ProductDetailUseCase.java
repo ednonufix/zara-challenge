@@ -1,9 +1,9 @@
-package com.inditex.zarachallenge.product.application.detail;
+package com.inditex.zarachallenge.product.application.productDetail;
 
 
-import com.inditex.zarachallenge.controller.model.ProductDetailResponse;
 import com.inditex.zarachallenge.product.domain.ProductDetailRepository;
 import com.inditex.zarachallenge.product.domain.details.ProductDetail;
+import com.inditex.zarachallenge.product.domain.details.ProductDetailResponse;
 import com.inditex.zarachallenge.product.domain.offers.ProductOffer;
 import com.inditex.zarachallenge.product.domain.sizes.ProductSize;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +15,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -36,27 +37,24 @@ public class ProductDetailUseCase {
 
         return similarProducts.stream()
             .map(this::getProductDetailResponse)
-            .filter(java.util.Objects::nonNull)
+            .filter(Optional::isPresent)
+            .flatMap(Optional::stream)
             .sorted(comparator)
             .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
-    private ProductDetailResponse getProductDetailResponse(ProductDetail product) {
-        ProductOffer latestOffer = getLatestValidOffer(product.offers());
-
-        if (latestOffer == null) {
-            return null;
-        }
-
-        boolean availability = getAvailabilityOfProduct(product.id(), product.sizes());
-        return new ProductDetailResponse(product.id().toString(), product.name(), latestOffer.price(), availability);
+    private Optional<ProductDetailResponse> getProductDetailResponse(ProductDetail product) {
+        Optional<ProductOffer> latestOffer = getLatestValidOffer(product.offers());
+        return latestOffer.map(offer -> {
+            boolean availability = getAvailabilityOfProduct(product.id(), product.sizes());
+            return new ProductDetailResponse(product.id().toString(), product.name(), offer.price(), availability);
+        });
     }
 
-    private ProductOffer getLatestValidOffer(List<ProductOffer> offers) {
+    private Optional<ProductOffer> getLatestValidOffer(List<ProductOffer> offers) {
         return offers.stream()
             .filter(offer -> !offer.validFrom().isAfter(currentDate))
-            .max(Comparator.comparing(ProductOffer::validFrom))
-            .orElse(null);
+            .max(Comparator.comparing(ProductOffer::validFrom));
     }
 
     private boolean getAvailabilityOfProduct(long idProduct, List<ProductSize> sizes) {

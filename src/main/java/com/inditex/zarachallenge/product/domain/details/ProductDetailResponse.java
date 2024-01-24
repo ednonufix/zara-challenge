@@ -1,4 +1,4 @@
-package com.inditex.zarachallenge.controller.model;
+package com.inditex.zarachallenge.product.domain.details;
 
 import java.math.BigDecimal;
 

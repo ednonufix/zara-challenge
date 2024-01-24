@@ -1,4 +1,4 @@
-package com.inditex.zarachallenge.infrastructure.datasource.http;
+package com.inditex.zarachallenge.infrastructure.outbound.http;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Repository;

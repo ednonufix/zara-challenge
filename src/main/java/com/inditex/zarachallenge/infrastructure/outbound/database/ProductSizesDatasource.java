@@ -1,6 +1,6 @@
-package com.inditex.zarachallenge.infrastructure.datasource.database;
+package com.inditex.zarachallenge.infrastructure.outbound.database;
 
-import com.inditex.zarachallenge.infrastructure.datasource.database.entities.ProductSizeEntity;
+import com.inditex.zarachallenge.infrastructure.outbound.database.entities.ProductSizeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

@@ -1,4 +1,4 @@
-package com.inditex.zarachallenge.infrastructure.datasource.database.entities;
+package com.inditex.zarachallenge.infrastructure.outbound.database.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,7 +11,6 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 @Setter
 @Getter

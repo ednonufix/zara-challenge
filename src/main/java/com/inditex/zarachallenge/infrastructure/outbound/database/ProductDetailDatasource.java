@@ -1,6 +1,6 @@
-package com.inditex.zarachallenge.infrastructure.datasource.database;
+package com.inditex.zarachallenge.infrastructure.outbound.database;
 
-import com.inditex.zarachallenge.infrastructure.datasource.database.entities.ProductDetailEntity;
+import com.inditex.zarachallenge.infrastructure.outbound.database.entities.ProductDetailEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
