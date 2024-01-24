@@ -1,7 +1,7 @@
 package com.inditex.zarachallenge.infrastructure.inbound.brokers.mapper;
 
 import com.inditex.zarachallenge.domain.sizes.ProductSizeUpdate;
-import com.inditex.zarachallenge.infrastructure.inbound.brokers.model.ProductAvailabilityEvent;
+import com.inditex.zarachallenge.infrastructure.model.ProductAvailabilityEvent;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

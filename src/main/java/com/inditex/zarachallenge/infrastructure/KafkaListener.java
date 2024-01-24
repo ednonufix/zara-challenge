@@ -1,9 +1,9 @@
-package com.inditex.zarachallenge.infrastructure.inbound.brokers;
+package com.inditex.zarachallenge.infrastructure;
 
 import com.inditex.zarachallenge.application.productSize.UpdateProductSizeUseCase;
 import com.inditex.zarachallenge.domain.sizes.ProductSizeUpdate;
 import com.inditex.zarachallenge.infrastructure.inbound.brokers.mapper.ProductAvailabilityMapper;
-import com.inditex.zarachallenge.infrastructure.inbound.brokers.model.ProductAvailabilityEvent;
+import com.inditex.zarachallenge.infrastructure.model.ProductAvailabilityEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.messaging.Message;

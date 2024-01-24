@@ -1,4 +1,4 @@
-package com.inditex.zarachallenge.infrastructure.inbound.brokers.model;
+package com.inditex.zarachallenge.infrastructure.model;
 
 import lombok.Builder;
 import lombok.Data;
